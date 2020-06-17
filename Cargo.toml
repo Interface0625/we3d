@@ -1,0 +1,43 @@
+[package]
+name = "we3d"
+version = "0.1.1"
+repository = "https://github.com/Interface0625/we3d.git"
+authors = ["Interface0625"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+gltf = "*"
+serde= { version = "*", features = ["derive"] } 
+serde_json = "*"
+wasm-bindgen = { version = "*", features = ["serde-serialize"]  }
+wasm-bindgen-futures = "*"
+futures = "*"
+nalgebra = "*"
+approx = "*"
+js-sys = "*"
+lazy_static = "*"
+console_error_panic_hook = "*"
+sudoku = { git = "https://github.com/Interface0625/sudoku.git" }
+
+[dependencies.web-sys]
+version = "*"
+features = [
+    'Document',
+    'Headers',
+    'Request',
+    'RequestInit',
+    'RequestMode',
+    'Response',
+    'Element',
+    'HtmlCanvasElement',
+    'MouseEvent',
+    'WebGlBuffer',
+    'WebGlProgram',
+    'WebGlRenderingContext',
+    'WebGlShader',
+    'WebGlUniformLocation',
+    'Window'
+]

@@ -1,0 +1,39 @@
+{
+  "name": "we3d",
+  "version": "1.0.1",
+  "description": "we3d",
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack-dev-server --port 9000 --host 0.0.0.0",
+    "start": "electron .",
+    "build": "webpack --mode production",
+    "dist": "electron-builder"
+  },
+  "author": "interface0625",
+  "license": "",
+  "build": {
+    "appId": "we3d",
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Interface0625/we3d.git"
+  },
+  "devDependencies": {
+    "@wasm-tool/wasm-pack-plugin": "1.0.1",
+    "copy-webpack-plugin": "^6.0.2",
+    "electron": "^9.0.2",
+    "electron-builder": "^22.7.0",
+    "html-webpack-plugin": "^4.3.0",
+    "text-encoding": "0.7.0",
+    "webpack": "4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "3.11.0"
+  },
+  "dependencies": {
+    "electron-serve": "^1.0.0",
+    "glob": "^7.1.6"
+  }
+}

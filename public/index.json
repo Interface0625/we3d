@@ -1,0 +1,8 @@
+[
+  "models/test.glb",
+  "shaders/default/color_2d.frag",
+  "shaders/default/color_2d.vert",
+  "shaders/default/pbr.frag",
+  "shaders/default/pbr.vert",
+  "text.txt"
+]
