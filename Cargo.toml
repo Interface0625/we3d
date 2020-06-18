@@ -2,7 +2,8 @@
 name = "we3d"
 version = "0.1.1"
 repository = "https://github.com/Interface0625/we3d.git"
-authors = ["Interface0625"]
+authors = ["Interface0625 <karolis.lukosius@gmail.com>"]
+license = "MIT"
 edition = "2018"
 
 [lib]
