@@ -1,13 +1,10 @@
+#[macro_use]
+extern crate lazy_static;
+
 use wasm_bindgen::prelude::*;
 use web_sys::WebGlRenderingContext as GL;
 use js_sys::Promise;
 use wasm_bindgen_futures::{future_to_promise};
-
-
-//#[macro_use]
-//extern crate approx; // For the macro relative_eq!
-#[macro_use]
-extern crate lazy_static;
 
 mod app_state;
 mod common_funcs;
@@ -91,9 +88,8 @@ impl RustClient {
 
     pub fn render(&self) {
         self.gl.clear(GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT | GL::STENCIL_BUFFER_BIT);
-        self.play_area.render(&self.gl, self.canvas_size );
+        //self.play_area.render(&self.gl, self.canvas_size );
         self.cursor.render(&self.gl, self.canvas_size );
         self.g3d_animation.render(&self.gl, &self.camera);
     }
 }
-

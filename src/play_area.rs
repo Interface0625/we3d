@@ -1,6 +1,5 @@
 use web_sys::WebGlRenderingContext as GL;
 use super::programs;
-use sudoku::Sudoku;
 use nalgebra as na;
 use na::{Vector2};
 
@@ -22,13 +21,10 @@ pub struct PlayArea {
 
 impl PlayArea{
     pub fn new(gl: &GL)-> Self{
-        let sudoku_line = "...2...633....54.1..1..398........9....538....3........263..5..5.37....847...1...";
-        let mut sudoku = Sudoku::from_str_line(sudoku_line).unwrap();
-        sudoku.shuffle();
         Self {
-            current_board: sudoku.to_bytes(),
-            solution_board: sudoku.solve_unique().unwrap().to_bytes(),
-            initial_board: sudoku.to_bytes(),
+            current_board: [1; 81],
+            solution_board: [1; 81],
+            initial_board: [1; 81],
             rect_2d: programs::Rect2D::new(gl),
             number_2d: programs::Number2D::new(gl),
             current_cell_index: -1,

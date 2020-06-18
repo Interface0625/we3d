@@ -20,7 +20,6 @@ approx = "*"
 js-sys = "*"
 lazy_static = "*"
 console_error_panic_hook = "*"
-sudoku = { git = "https://github.com/Interface0625/sudoku.git" }
 
 [dependencies.web-sys]
 version = "*"

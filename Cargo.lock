@@ -77,12 +77,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "crunchy"
-version = "0.2.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7a81dae078cea95a014a339291cec439d2f232ebe854a9d672b796c6afafa9b7"
-
-[[package]]
 name = "deflate"
 version = "0.8.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -205,7 +199,6 @@ dependencies = [
  "cfg-if",
  "libc",
  "wasi",
- "wasm-bindgen",
 ]
 
 [[package]]
@@ -622,15 +615,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c111b5bd5695e56cffe5129854aa230b39c93a305372fdbb2668ca2394eea9f8"
 
 [[package]]
-name = "sudoku"
-version = "0.7.0"
-source = "git+https://github.com/Interface0625/sudoku.git#8483722895ee58a7c90d5c6333da73e7f2997c31"
-dependencies = [
- "crunchy",
- "rand",
-]
-
-[[package]]
 name = "syn"
 version = "1.0.31"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -740,7 +724,6 @@ dependencies = [
  "nalgebra",
  "serde",
  "serde_json",
- "sudoku",
  "wasm-bindgen",
  "wasm-bindgen-futures",
  "web-sys",
