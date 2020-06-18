@@ -1,6 +1,7 @@
 [package]
 name = "we3d"
 version = "0.1.1"
+description = "A Wasm Engine 3d. Test project"
 repository = "https://github.com/Interface0625/we3d.git"
 authors = ["Interface0625 <karolis.lukosius@gmail.com>"]
 license = "MIT"
