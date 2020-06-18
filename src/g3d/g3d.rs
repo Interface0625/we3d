@@ -3,7 +3,7 @@ use web_sys::*;
 use super::super::common_funcs as cf;
 use super::super::shaders;
 use nalgebra as na;
-use na::{Vector2, Vector3, Vector4, Matrix4, Perspective3};
+// use na::{Vector2, Vector3, Vector4, Matrix4, Perspective3};
 use super::g3dj;
 use super::super::gl_helper as glh;
 use super::super::camera;
@@ -52,7 +52,7 @@ impl MeshPart {
         }
     }
 }
-
+/*
 struct Material {
     id: String, 
     ambient: [ f32; 3 ], 
@@ -107,13 +107,13 @@ struct KeyFrame {
     rotation: [f32; 4],
     scale: [f32; 3],
 }
-
+*/
 pub struct G3d {
     program: WebGlProgram,
-    id: String,
+    //id: String,
     pub meshes: Vec< Mesh >,
-    u_mvMatrix: WebGlUniformLocation,
-    u_pMatrix: WebGlUniformLocation,
+    u_mv_matrix: WebGlUniformLocation,
+    u_p_matrix: WebGlUniformLocation,
     
     //materials: Vec< Material >,
     //nodes: Vec< Node >,
@@ -123,19 +123,19 @@ pub struct G3d {
 impl G3d {
     pub fn new(gl: &GL, json_str: &String) -> Self {
         let program = cf::link_program(&gl, shaders::vertex::skinned_g3d::SHADER, shaders::fragment::skinned_g3d::SHADER).unwrap();
-
-        let u_mvMatrix = gl.get_uniform_location(&program, "u_mvMatrix").unwrap();
-        let u_pMatrix = gl.get_uniform_location(&program, "u_pMatrix").unwrap();
+        
+        let u_mv_matrix = gl.get_uniform_location(&program, "u_mvMatrix").unwrap();
+        let u_p_matrix = gl.get_uniform_location(&program, "u_pMatrix").unwrap();
         //let a_position = 
         let _g3dj = g3dj::from_str(json_str);
-        let id = _g3dj.id;
+        //let id = _g3dj.id;
         let meshes = _g3dj.meshes.into_iter().map(|mesh| { Mesh::new(gl, &mesh) } ).collect();
         Self {
-            id,
+            //id,
             meshes,
             program,
-            u_mvMatrix,
-            u_pMatrix,
+            u_mv_matrix,
+            u_p_matrix,
             //materials,
             //nodes,
             //animations,
@@ -218,8 +218,9 @@ impl G3d {
 
     pub fn render(&self, gl:&GL, camera: &camera::Camera){
         gl.use_program(Some(&self.program));
-        glh::uniform_matrix4(gl, &self.u_mvMatrix, camera.v_matrix );
-        glh::uniform_matrix4(gl, &self.u_pMatrix, camera.p_matrix );
+        let model_matrix: na::Matrix4<f32> = na::Matrix4::new_nonuniform_scaling( &na::Vector3::new(1.,-1.,1.) );
+        glh::uniform_matrix4(gl, &self.u_mv_matrix, model_matrix * camera.v_matrix );
+        glh::uniform_matrix4(gl, &self.u_p_matrix, camera.p_matrix );
 
         let meshes = &self.meshes;
         for mesh in meshes {
