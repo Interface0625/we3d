@@ -24,7 +24,7 @@
   "devDependencies": {
     "@wasm-tool/wasm-pack-plugin": "1.0.1",
     "copy-webpack-plugin": "^6.0.2",
-    "electron": "^9.0.2",
+    "electron": "^9.4.0",
     "electron-builder": "^22.7.0",
     "html-webpack-plugin": "^4.3.0",
     "text-encoding": "0.7.0",
